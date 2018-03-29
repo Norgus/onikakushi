@@ -1,4 +1,4 @@
-﻿void main()
+void main()
 {
 
 
@@ -17,10 +17,12 @@
 
 //locate 2,7
 
-	SetDrawingPointOfMessage( 0, 7 );
+	if (GetGlobalFlag(GADVMode) == 0) { SetDrawingPointOfMessage( 0, 7 ); }
 	SetStyleOfMessageSwinging( 1 );
 
 //（新聞には掲載されなかった......￥
+	ClearMessage();
+	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "（新聞には掲載されなかった……）",
 		   NULL, "(It wasn't reported in the newspaper...)", Line_Normal);
 	ClearMessage();
